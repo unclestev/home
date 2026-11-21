@@ -59,7 +59,7 @@
    emoji : fallback art
    color : accent color
    img   : optional image URL. If left out, the page tries
-           https://unclestev.github.io/<repo>/preview.png
+           img/<repo>.jpg in this repo
            and falls back to the emoji tile.
    url   : optional link override (defaults to the GitHub Pages site)
 */
@@ -86,7 +86,7 @@ function tile(a, i){
   const c   = a.color || PALETTE[i % PALETTE.length];
   const url = a.url || (a.pages === false ? `https://github.com/${USER}/${a.repo}`
                                           : `https://${USER}.github.io/${a.repo}/`);
-  const img = a.img || `https://${USER}.github.io/${a.repo}/preview.png`;
+  const img = a.img || `img/${a.repo}.jpg`;
   const el = document.createElement("a");
   el.className = "tile"; el.href = url; el.style.setProperty("--c", c);
   el.title = a.desc || a.title || a.repo;
